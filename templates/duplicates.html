@@ -1,0 +1,67 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<p class="eyebrow">DATA QUALITY MANAGEMENT</p>
+
+<h1>Duplicate Contact Detection</h1>
+
+<p class="muted">
+    Review possible duplicates based on matching
+    names, phone numbers, or email addresses.
+    No contacts are deleted automatically.
+</p>
+
+<section class="panel">
+
+    {% if matches %}
+
+    <div class="table-scroll">
+        <table>
+            <thead>
+                <tr>
+                    <th>Contact A</th>
+                    <th>Contact B</th>
+                    <th>Duplicate Reason</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for match in matches %}
+                <tr>
+                    <td>
+                        {{ match.first.name }}
+                        (#{{ match.first.id }})
+                    </td>
+
+                    <td>
+                        {{ match.second.name }}
+                        (#{{ match.second.id }})
+                    </td>
+
+                    <td>
+                        {{ match.reasons }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% else %}
+
+        <p>
+            No suspected duplicate contacts detected.
+        </p>
+
+    {% endif %}
+
+</section>
+
+<a href="{{ url_for('contacts') }}"
+   class="btn secondary">
+    Back to Contacts
+</a>
+
+{% endblock %}

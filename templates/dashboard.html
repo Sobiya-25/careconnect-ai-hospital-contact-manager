@@ -1,0 +1,106 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero">
+    <div>
+        <p class="eyebrow">HOSPITAL CONTACT INTELLIGENCE</p>
+        <h1>AI Smart Hospital Contact Manager</h1>
+        <p>
+            Manage doctors, hospitals, clinics and healthcare
+            provider contacts with intelligent automation.
+        </p>
+    </div>
+
+    <a href="{{ url_for('add_contact') }}" class="btn">
+        + Add Hospital Contact
+    </a>
+</section>
+
+<section class="stats">
+
+    <article class="stat">
+        <span>Total Contacts</span>
+        <strong>{{ total }}</strong>
+    </article>
+
+    <article class="stat">
+        <span>Total Doctors</span>
+        <strong>{{ counts.get('Doctor', 0) }}</strong>
+    </article>
+
+    <article class="stat">
+        <span>Hospitals & Clinics</span>
+        <strong>
+            {{ counts.get('Hospital', 0)
+             + counts.get('Clinic', 0) }}
+        </strong>
+    </article>
+
+    <article class="stat">
+        <span>Total Departments</span>
+        <strong>{{ departments }}</strong>
+    </article>
+
+</section>
+
+<section class="panel">
+
+    <div class="section-head">
+        <h2>Recently Added Contacts</h2>
+
+        <a href="{{ url_for('contacts') }}">
+            View All Contacts
+        </a>
+    </div>
+
+    {% if recent %}
+
+    <div class="table-scroll">
+        <table>
+            <thead>
+                <tr>
+                    <th>Contact Name</th>
+                    <th>Contact Type</th>
+                    <th>Hospital / Clinic</th>
+                    <th>Department</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for contact in recent %}
+                <tr>
+                    <td>{{ contact.name }}</td>
+
+                    <td>
+                        <span class="pill">
+                            {{ contact.category or 'Other' }}
+                        </span>
+                    </td>
+
+                    <td>
+                        {{ contact.hospital_name or '-' }}
+                    </td>
+
+                    <td>
+                        {{ contact.department or '-' }}
+                    </td>
+
+                    <td>
+                        {{ contact.location or '-' }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% else %}
+        <p>No hospital contacts have been added yet.</p>
+    {% endif %}
+
+</section>
+
+{% endblock %}

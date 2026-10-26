@@ -1,0 +1,146 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<p class="eyebrow">HOSPITAL CONTACT MANAGEMENT</p>
+
+<h1>{{ title }}</h1>
+
+<section class="panel form-panel">
+
+    <form method="POST">
+
+        <input
+            type="hidden"
+            name="_csrf"
+            value="{{ csrf_token() }}"
+        >
+
+        <div class="form-grid">
+
+            <label>
+                Full Name *
+                <input
+                    type="text"
+                    name="name"
+                    required
+                    maxlength="100"
+                    placeholder="Dr. Ananya Kumar"
+                    value="{{ item.get('name', '') }}"
+                >
+            </label>
+
+            <label>
+                Email Address *
+                <input
+                    type="email"
+                    name="email"
+                    required
+                    maxlength="254"
+                    placeholder="doctor@example.com"
+                    value="{{ item.get('email', '') }}"
+                >
+            </label>
+
+            <label>
+                Phone Number
+                <input
+                    type="tel"
+                    name="phone"
+                    maxlength="25"
+                    placeholder="9876543210"
+                    value="{{ item.get('phone') or '' }}"
+                >
+            </label>
+
+            <label>
+                Contact Type *
+                <select name="category" required>
+
+                    {% for type in types %}
+                        <option value="{{ type }}"
+                            {% if item.get('category', 'Doctor') == type %}
+                                selected
+                            {% endif %}>
+                            {{ type }}
+                        </option>
+                    {% endfor %}
+
+                </select>
+            </label>
+
+            <label>
+                Hospital / Clinic Name
+                <input
+                    type="text"
+                    name="hospital_name"
+                    maxlength="150"
+                    placeholder="Green Valley Hospital"
+                    value="{{ item.get('hospital_name') or '' }}"
+                >
+            </label>
+
+            <label>
+                Department / Specialization
+                <input
+                    type="text"
+                    name="department"
+                    maxlength="100"
+                    placeholder="Cardiology"
+                    value="{{ item.get('department') or '' }}"
+                >
+            </label>
+
+            <label>
+                Location
+                <input
+                    type="text"
+                    name="location"
+                    maxlength="150"
+                    placeholder="Chennai, Tamil Nadu"
+                    value="{{ item.get('location') or '' }}"
+                >
+            </label>
+
+            <label>
+                Organization
+                <input
+                    type="text"
+                    name="company"
+                    maxlength="150"
+                    placeholder="Healthcare Services"
+                    value="{{ item.get('company') or '' }}"
+                >
+            </label>
+
+        </div>
+
+        <label>
+            Additional Notes
+            <textarea
+                name="notes"
+                rows="4"
+                maxlength="2000"
+                placeholder="Public contact or administrative details"
+            >{{ item.get('notes') or '' }}</textarea>
+        </label>
+
+        <div class="row">
+
+            <button type="submit">
+                Save Hospital Contact
+            </button>
+
+            <a href="{{ url_for('contacts') }}"
+               class="btn secondary">
+                Cancel
+            </a>
+
+        </div>
+
+    </form>
+
+</section>
+
+{% endblock %}

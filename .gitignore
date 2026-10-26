@@ -1,0 +1,38 @@
+# Secrets
+.env
+.env.*
+!.env.example
+*.key
+
+# Python environment
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# SQLite databases and backups
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+backups/
+
+# Previous source backups
+app_before_*.py
+database_before_*.py
+*_backup*.py
+
+# Editor and temporary files
+.vscode/
+.pytest_cache/
+# Exclude duplicate project folder
+/ai-smart-hospital-contact-manager/
+# Duplicate project folder
+/ai-smart-hospital-contact-manager/
+
+# Local Gemini development utilities
+/test_gemini.py
+/list_gemini_models.py
+
+# Old template backup
+/templates/add_contact_before_hospital.html
