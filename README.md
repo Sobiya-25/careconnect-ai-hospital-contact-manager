@@ -78,7 +78,4 @@ files are excluded from the repository.
 
 Sobiya M
 
-## Assessment
-
-Gokul Infocare – AI Growth & Automation Associate,
 Task 1: AI Skills & Prompt Engineering Assessment.
