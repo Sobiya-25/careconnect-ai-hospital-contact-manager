@@ -78,4 +78,3 @@ files are excluded from the repository.
 
 Sobiya M
 
-Task 1: AI Skills & Prompt Engineering Assessment.
