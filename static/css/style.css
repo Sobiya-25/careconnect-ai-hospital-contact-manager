@@ -574,3 +574,684 @@ footer {
         transition: none;
     }
 }
+
+/* CareConnect AI 2.0 - Welcome Page */
+
+.cc-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  min-height: 440px;
+  padding: 65px 7%;
+  border-radius: 24px;
+  background: linear-gradient(125deg, #0a2444, #086b82);
+  color: white;
+  overflow: hidden;
+}
+
+.cc-hero-content {
+  max-width: 650px;
+}
+
+.cc-eyebrow {
+  display: inline-block;
+  color: #7fe0e3;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 22px;
+}
+
+.cc-hero h1 {
+  color: white;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.15;
+  margin: 0 0 22px;
+}
+
+.cc-hero h1 span {
+  color: #75e4df;
+}
+
+.cc-hero p {
+  color: #d8e9f2;
+  font-size: 17px;
+  line-height: 1.8;
+  max-width: 580px;
+}
+
+.cc-hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+.cc-btn-primary,
+.cc-btn-outline {
+  display: inline-block;
+  padding: 14px 25px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform .2s, background .2s;
+}
+
+.cc-btn-primary {
+  background: #45d5c9;
+  color: #07343f;
+}
+
+.cc-btn-outline {
+  border: 1px solid #c9e6f0;
+  color: white;
+}
+
+.cc-btn-primary:hover,
+.cc-btn-outline:hover {
+  transform: translateY(-3px);
+}
+
+.cc-hero-symbol {
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.cc-medical-symbol {
+  display: grid;
+  place-items: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.09);
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  color: #84eee3;
+  font-size: 110px;
+}
+
+.cc-symbol-caption {
+  margin-top: 20px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #c8e5ed;
+}
+
+.cc-features {
+  padding: 65px 2%;
+  text-align: center;
+}
+
+.cc-features h2 {
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+
+.cc-features > p {
+  color: #718096;
+}
+
+.cc-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 35px;
+}
+
+.cc-feature-card {
+  padding: 28px 22px;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+  text-align: left;
+}
+
+.cc-feature-icon {
+  color: #087b8c;
+  font-size: 34px;
+  margin-bottom: 14px;
+}
+
+.cc-feature-card h3 {
+  color: #15334b;
+  font-size: 17px;
+}
+
+.cc-feature-card p {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .cc-hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 55px 25px;
+  }
+
+  .cc-hero-actions {
+    justify-content: center;
+  }
+
+  .cc-feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cc-medical-symbol {
+    width: 140px;
+    height: 140px;
+    font-size: 75px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cc-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cc-hero {
+    padding: 42px 20px;
+  }
+}
+
+/* CareConnect AI 2.0 - Dashboard */
+
+.cc-dashboard {
+  padding: 35px 0 70px;
+}
+
+.cc-dashboard-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.cc-dashboard-heading h1 {
+  color: #102c4c;
+  font-size: 36px;
+  margin: 8px 0;
+}
+
+.cc-dashboard-heading p {
+  color: #718096;
+}
+
+.cc-section-label {
+  color: #078e9b;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.cc-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.cc-stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 25px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .04);
+}
+
+.cc-stat-icon {
+  color: #078e9b;
+  font-size: 28px;
+}
+
+.cc-stat-card span {
+  color: #65758b;
+  font-size: 14px;
+}
+
+.cc-stat-card strong {
+  color: #102c4c;
+  font-size: 36px;
+}
+
+.cc-stat-card small {
+  color: #94a3b8;
+}
+
+.cc-dashboard-panels {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 22px;
+}
+
+.cc-panel {
+  background: white;
+  padding: 26px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.cc-panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.cc-panel h2 {
+  font-size: 20px;
+  color: #102c4c;
+}
+
+.cc-panel-heading a {
+  color: #078e9b;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.cc-table-wrap {
+  overflow-x: auto;
+}
+
+.cc-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cc-table th,
+.cc-table td {
+  padding: 15px 12px;
+  text-align: left;
+  border-bottom: 1px solid #e5eaf0;
+}
+
+.cc-table th {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.cc-quick-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.cc-quick-actions a {
+  display: block;
+  padding: 14px;
+  background: #f1f7fa;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #123c55;
+  font-weight: 600;
+}
+
+.cc-quick-actions a:hover {
+  background: #d9f4f2;
+}
+
+@media (max-width: 1000px) {
+  .cc-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cc-dashboard-panels {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .cc-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cc-dashboard-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* CareConnect AI - Left Sidebar */
+
+.cc-app-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 26px;
+  padding: 20px 0 50px;
+  width: 100%;
+}
+
+.cc-sidebar {
+  width: 250px;
+  flex: 0 0 250px;
+  background: #0c2d4c;
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 24px 14px;
+  min-height: 580px;
+  position: sticky;
+  top: 20px;
+}
+
+.cc-sidebar-title {
+  color: #72e1d9;
+  font-size: 20px;
+  font-weight: 800;
+  padding: 10px 12px 22px;
+  border-bottom: 1px solid #31506a;
+}
+
+.cc-menu-heading {
+  margin: 26px 12px 12px;
+  color: #8eafc4;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.cc-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.cc-sidebar-nav a {
+  display: block;
+  padding: 15px 16px;
+  color: #d9eaf4;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.cc-sidebar-nav a:hover {
+  background: #214b6b;
+  color: white;
+}
+
+.cc-sidebar-nav a.active {
+  background: #39cfc5;
+  color: #06304b;
+}
+
+.cc-sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 45px;
+  padding: 18px 12px 4px;
+  border-top: 1px solid #31506a;
+  color: #b6d5e3;
+  font-size: 13px;
+}
+
+.cc-sidebar-bottom small {
+  color: #87a5b9;
+}
+
+.cc-main-area {
+  flex: 1;
+  min-width: 0;
+}
+
+.cc-main-area .cc-stats-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 900px) {
+  .cc-app-layout {
+    flex-direction: column;
+  }
+
+  .cc-sidebar {
+    position: static;
+    width: 100%;
+    min-height: auto;
+    flex: auto;
+  }
+
+  .cc-main-area {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .cc-main-area .cc-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* CareConnect AI 2.0 - Global Layout */
+
+body {
+    margin: 0;
+    background: #f2f6fc;
+}
+
+.cc-shell {
+    display: flex;
+    min-height: 100vh;
+    align-items: stretch;
+}
+
+.cc-global-sidebar {
+    width: 260px;
+    flex: 0 0 260px;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    height: 100vh;
+    min-height: 0;
+    overflow-y: auto;
+    border-radius: 0;
+    z-index: 20;
+}
+
+.cc-brand-link {
+    display: block;
+    text-decoration: none;
+}
+
+.cc-page-area {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.cc-topbar {
+    min-height: 76px;
+    padding: 15px 36px;
+    box-sizing: border-box;
+    background: #fff;
+    border-bottom: 1px solid #e5edf4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.cc-topbar strong {
+    display: block;
+    color: #123454;
+    font-size: 20px;
+}
+
+.cc-topbar span {
+    color: #72859b;
+    font-size: 12px;
+}
+
+.cc-topbar-link {
+    color: #087d8c;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.layout.cc-content-area {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    flex: 1;
+    padding: 30px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.cc-content-area .cc-hero {
+    min-height: 400px;
+    padding: 50px 5%;
+}
+
+.cc-content-area .cc-feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cc-content-area .cc-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cc-app-footer {
+    text-align: center;
+    padding: 22px;
+    color: #718096;
+    border-top: 1px solid #e2e8f0;
+    background: #fff;
+}
+
+@media (max-width: 850px) {
+    .cc-shell {
+        flex-direction: column;
+    }
+
+    .cc-global-sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        flex: none;
+        border-radius: 0;
+    }
+
+    .cc-global-sidebar .cc-sidebar-nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .layout.cc-content-area {
+        padding: 20px;
+    }
+
+    .cc-topbar {
+        padding: 15px 20px;
+    }
+}
+
+@media (max-width: 550px) {
+    .cc-content-area .cc-feature-grid,
+    .cc-content-area .cc-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cc-global-sidebar .cc-sidebar-nav {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Department autocomplete */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 9px;
+    font-weight: 600;
+    color: #17324d;
+}
+
+.form-group input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 15px;
+    border: 1px solid #ccd9e6;
+    border-radius: 10px;
+    background: #fff;
+    font-size: 15px;
+}
+
+.form-group input:focus {
+    border-color: #18a8ad;
+    outline: 3px solid rgba(24,168,173,0.12);
+}
+
+.cc-field-help {
+    display: block;
+    color: #718096;
+    font-size: 12px;
+    margin-top: 7px;
+}
+
+/* Smart Department Autocomplete */
+
+.cc-department-group {
+    position: relative;
+}
+
+.cc-department-group input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.cc-department-suggestions {
+    position: absolute;
+    top: calc(100% - 18px);
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: white;
+    border: 1px solid #d9e4ee;
+    border-radius: 10px;
+    box-shadow: 0 12px 25px rgba(15, 45, 70, 0.12);
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.cc-department-suggestions[hidden] {
+    display: none;
+}
+
+.cc-department-option {
+    display: block;
+    width: 100%;
+    padding: 13px 15px;
+    border: none;
+    background: white;
+    color: #153451;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.cc-department-option:hover,
+.cc-department-option:focus {
+    background: #e8f8f7;
+    color: #087f8c;
+}
+
+.cc-field-help {
+    display: block;
+    margin-top: 7px;
+    color: #72859b;
+    font-size: 12px;
+}

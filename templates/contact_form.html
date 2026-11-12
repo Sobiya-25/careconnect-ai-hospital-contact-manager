@@ -81,16 +81,35 @@
                 >
             </label>
 
-            <label>
-                Department / Specialization
-                <input
-                    type="text"
-                    name="department"
-                    maxlength="100"
-                    placeholder="Cardiology"
-                    value="{{ item.get('department') or '' }}"
-                >
-            </label>
+
+
+<div class="form-group cc-department-group">
+    <label for="department">Department</label>
+
+    <input
+        type="text"
+        id="department"
+        name="department"
+        value="{{ item.department or '' }}"
+        placeholder="Start typing a department..."
+        maxlength="100"
+        autocomplete="off"
+        aria-autocomplete="list"
+        aria-controls="department-suggestions"
+    >
+
+    <div
+        id="department-suggestions"
+        class="cc-department-suggestions"
+        role="listbox"
+        hidden>
+    </div>
+
+    <small class="cc-field-help">
+        Select an existing department or enter a new one.
+    </small>
+</div>
+
 
             <label>
                 Location

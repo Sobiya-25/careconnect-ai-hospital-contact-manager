@@ -125,3 +125,100 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const input = document.getElementById("department");
+    const suggestions = document.getElementById(
+        "department-suggestions"
+    );
+
+    if (!input || !suggestions) return;
+
+    let debounceTimer;
+    let controller;
+
+    function hideSuggestions() {
+        suggestions.replaceChildren();
+        suggestions.hidden = true;
+        input.setAttribute("aria-expanded", "false");
+    }
+
+    input.setAttribute("aria-expanded", "false");
+
+    input.addEventListener("input", () => {
+        clearTimeout(debounceTimer);
+
+        if (controller) controller.abort();
+
+        const query = input.value.trim();
+
+        hideSuggestions();
+
+        if (!query) return;
+
+        debounceTimer = setTimeout(async () => {
+            controller = new AbortController();
+
+            try {
+                const response = await fetch(
+                    `/api/departments?q=${encodeURIComponent(query)}`,
+                    { signal: controller.signal }
+                );
+
+                if (!response.ok) {
+                    throw new Error("Department search failed");
+                }
+
+                const departments = await response.json();
+
+                if (input.value.trim() !== query) return;
+
+                hideSuggestions();
+
+                departments.forEach((department) => {
+                    const option = document.createElement("button");
+
+                    option.type = "button";
+                    option.className = "cc-department-option";
+                    option.textContent = department;
+                    option.setAttribute("role", "option");
+
+                    option.addEventListener("click", () => {
+                        input.value = department;
+                        hideSuggestions();
+                        input.focus();
+                    });
+
+                    suggestions.appendChild(option);
+                });
+
+                suggestions.hidden = departments.length === 0;
+                input.setAttribute(
+                    "aria-expanded",
+                    String(departments.length > 0)
+                );
+
+            } catch (error) {
+                if (error.name !== "AbortError") {
+                    console.error(error);
+                    hideSuggestions();
+                }
+            }
+        }, 250);
+    });
+
+    input.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            hideSuggestions();
+        }
+    });
+
+    document.addEventListener("click", (event) => {
+        if (
+            event.target !== input &&
+            !suggestions.contains(event.target)
+        ) {
+            hideSuggestions();
+        }
+    });
+});
