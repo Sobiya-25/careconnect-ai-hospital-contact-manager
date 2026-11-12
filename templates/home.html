@@ -1,0 +1,67 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<section class="cc-hero">
+  <div class="cc-hero-content">
+    <span class="cc-eyebrow">✚ SMART HEALTHCARE MANAGEMENT</span>
+
+    <h1>
+      Welcome to <span>CareConnect AI</span>
+    </h1>
+
+    <p>
+      Your intelligent healthcare administration workspace.
+      Manage hospital contacts, organize appointments,
+      access emergency information, and work smarter
+      with AI-powered assistance.
+    </p>
+
+    <div class="cc-hero-actions">
+      <a href="{{ url_for('dashboard') }}" class="cc-btn-primary">
+        Get Started →
+      </a>
+
+      <a href="{{ url_for('contacts') }}" class="cc-btn-outline">
+        Explore Contacts
+      </a>
+    </div>
+  </div>
+
+  <div class="cc-hero-symbol" aria-hidden="true">
+    <div class="cc-medical-symbol">✚</div>
+    <div class="cc-symbol-caption">CARE • CONNECT • INNOVATE</div>
+  </div>
+</section>
+
+<section class="cc-features">
+  <h2>Everything your healthcare team needs</h2>
+  <p>One connected workspace for daily operations.</p>
+
+  <div class="cc-feature-grid">
+    <article class="cc-feature-card">
+      <div class="cc-feature-icon">▦</div>
+      <h3>Smart Dashboard</h3>
+      <p>Monitor important contacts and daily activities.</p>
+    </article>
+
+    <article class="cc-feature-card">
+      <div class="cc-feature-icon">♙</div>
+      <h3>Contact Management</h3>
+      <p>Find and manage healthcare directory contacts.</p>
+    </article>
+
+    <article class="cc-feature-card">
+      <div class="cc-feature-icon">✧</div>
+      <h3>Gemini AI</h3>
+      <p>Generate professional emails and classify contacts.</p>
+    </article>
+
+    <article class="cc-feature-card">
+      <div class="cc-feature-icon">▣</div>
+      <h3>Appointment Planning</h3>
+      <p>Organize schedules and reminders as we expand.</p>
+    </article>
+  </div>
+</section>
+{% endblock %}

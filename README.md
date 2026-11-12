@@ -78,3 +78,43 @@ files are excluded from the repository.
 
 Sobiya M
 
+## Assessment
+
+Gokul Infocare – AI Growth & Automation Associate,
+Task 1: AI Skills & Prompt Engineering Assessment.
+
+---
+
+## Application Screenshots
+
+### 1. Dashboard
+
+Overview of healthcare contacts and dashboard statistics.
+
+![CareConnect AI Dashboard](screenshots/dashboard.png)
+
+### 2. Hospital Contact Directory
+
+View, search, and manage hospital and doctor contacts.
+
+![Hospital Contact Directory](screenshots/contacts.png)
+
+### 3. Duplicate Detection
+
+Identify potentially duplicate healthcare directory contacts.
+
+![Duplicate Detection](screenshots/duplicates.png)
+
+### 4. AI Smart Classification
+
+Google Gemini analyzes healthcare contacts and suggests
+a contact type, department, and explanation.
+
+![Gemini AI Classification](screenshots/ai-classification.png)
+
+### 5. AI Email Draft Generation
+
+Google Gemini generates a professional administrative
+email based on the selected contact and communication purpose.
+
+![Gemini AI Email Draft](screenshots/ai-email.png)

@@ -3,103 +3,158 @@
 
 {% block content %}
 
-<section class="hero">
-    <div>
-        <p class="eyebrow">HOSPITAL CONTACT INTELLIGENCE</p>
-        <h1>AI Smart Hospital Contact Manager</h1>
-        <p>
-            Manage doctors, hospitals, clinics and healthcare
-            provider contacts with intelligent automation.
-        </p>
-    </div>
+<section class="cc-dashboard">
 
-    <a href="{{ url_for('add_contact') }}" class="btn">
-        + Add Hospital Contact
-    </a>
-</section>
+    <!-- DASHBOARD HEADER -->
+    <div class="cc-dashboard-heading">
 
-<section class="stats">
+        <div>
+            <span class="cc-section-label">
+                CARECONNECT AI
+            </span>
 
-    <article class="stat">
-        <span>Total Contacts</span>
-        <strong>{{ total }}</strong>
-    </article>
+            <h1>Hospital Dashboard</h1>
 
-    <article class="stat">
-        <span>Total Doctors</span>
-        <strong>{{ counts.get('Doctor', 0) }}</strong>
-    </article>
+            <p>
+                Welcome back! Here's an overview of your
+                healthcare contact directory.
+            </p>
+        </div>
 
-    <article class="stat">
-        <span>Hospitals & Clinics</span>
-        <strong>
-            {{ counts.get('Hospital', 0)
-             + counts.get('Clinic', 0) }}
-        </strong>
-    </article>
-
-    <article class="stat">
-        <span>Total Departments</span>
-        <strong>{{ departments }}</strong>
-    </article>
-
-</section>
-
-<section class="panel">
-
-    <div class="section-head">
-        <h2>Recently Added Contacts</h2>
-
-        <a href="{{ url_for('contacts') }}">
-            View All Contacts
+        <a href="{{ url_for('add_contact') }}"
+           class="cc-btn-primary">
+            + Add Contact
         </a>
+
     </div>
 
-    {% if recent %}
+    <!-- DASHBOARD STATISTICS -->
+    <div class="cc-stats-grid">
 
-    <div class="table-scroll">
-        <table>
-            <thead>
-                <tr>
-                    <th>Contact Name</th>
-                    <th>Contact Type</th>
-                    <th>Hospital / Clinic</th>
-                    <th>Department</th>
-                    <th>Location</th>
-                </tr>
-            </thead>
+        <!-- TOTAL CONTACTS -->
+        <div class="cc-stat-card">
+            <div class="cc-stat-icon">📇</div>
 
-            <tbody>
-                {% for contact in recent %}
-                <tr>
-                    <td>{{ contact.name }}</td>
+            <span>Total Contacts</span>
 
-                    <td>
-                        <span class="pill">
+            <strong>{{ total }}</strong>
+
+            <small>
+                Healthcare directory records
+            </small>
+        </div>
+
+        <!-- DOCTORS -->
+        <div class="cc-stat-card">
+            <div class="cc-stat-icon">✚</div>
+
+            <span>Doctors</span>
+
+            <strong>
+                {{ counts.get('Doctor', 0) }}
+            </strong>
+
+            <small>
+                Registered doctor contacts
+            </small>
+        </div>
+
+        <!-- HOSPITALS -->
+        <div class="cc-stat-card">
+            <div class="cc-stat-icon">🏥</div>
+
+            <span>Hospitals</span>
+
+            <strong>
+                {{ counts.get('Hospital', 0) }}
+            </strong>
+
+            <small>
+                Hospital directory records
+            </small>
+        </div>
+
+        <!-- DEPARTMENTS -->
+        <div class="cc-stat-card">
+            <div class="cc-stat-icon">▦</div>
+
+            <span>Departments</span>
+
+            <strong>{{ departments }}</strong>
+
+            <small>
+                Unique healthcare departments
+            </small>
+        </div>
+
+    </div>
+
+    <!-- RECENT CONTACTS -->
+    <div class="cc-panel">
+
+        <div class="cc-panel-heading">
+
+            <h2>Recent Contacts</h2>
+
+            <a href="{{ url_for('contacts') }}">
+                View All →
+            </a>
+
+        </div>
+
+        <div class="cc-table-wrap">
+
+            <table class="cc-table">
+
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Department</th>
+                        <th>Hospital</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for contact in recent %}
+
+                    <tr>
+                        <td>
+                            {{ contact.name }}
+                        </td>
+
+                        <td>
                             {{ contact.category or 'Other' }}
-                        </span>
-                    </td>
+                        </td>
 
-                    <td>
-                        {{ contact.hospital_name or '-' }}
-                    </td>
+                        <td>
+                            {{ contact.department or '—' }}
+                        </td>
 
-                    <td>
-                        {{ contact.department or '-' }}
-                    </td>
+                        <td>
+                            {{ contact.hospital_name or '—' }}
+                        </td>
+                    </tr>
 
-                    <td>
-                        {{ contact.location or '-' }}
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                    {% else %}
+
+                    <tr>
+                        <td colspan="4"
+                            style="text-align: center; padding: 30px;">
+                            No contacts available.
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
     </div>
-
-    {% else %}
-        <p>No hospital contacts have been added yet.</p>
-    {% endif %}
 
 </section>
 
